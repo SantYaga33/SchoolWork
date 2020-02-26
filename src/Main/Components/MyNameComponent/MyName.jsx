@@ -1,14 +1,16 @@
 import React from 'react';
-import styles from './Main.module.css';
+import styles from './MyName.module.css';
+import AnimatedItem from "./AnimatedItem";
 
-const Main= ()=> {
+const MyName = (props) => {
+
+	const actionLetter = props.state.letters.map(el => <AnimatedItem className={styles.item} letter={el}/>);
+
 	return (
-		<div className={styles.main}>
-			<div className={styles.main_container}>
-				<div className={styles.main_wrap}></div>
-			</div>
+		<div className={styles.wrap}>
+			{actionLetter}
 		</div>
 	);
-}
+};
 
-export default Main;
+export default MyName;

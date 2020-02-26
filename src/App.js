@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css';
 import Main from "./Main/Main";
 
-function App() {
+const App= (props)=> {
   return (
-    <Main/>
+    <Main state={props.state}/>
   );
-}
+};
 
 export default App;
