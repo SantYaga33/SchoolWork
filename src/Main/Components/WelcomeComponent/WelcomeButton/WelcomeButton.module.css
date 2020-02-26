@@ -1,0 +1,19 @@
+.button_wrap {
+    width: 21%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+}
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    background-color: #18b0f3;
+    color: #fff;
+    font-size: 16px;
+    text-transform: capitalize;
+}

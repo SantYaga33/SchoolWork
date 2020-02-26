@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Main.module.css';
 import MyName from "./Components/MyNameComponent/MyName";
 import MySkills from "./Components/MySkillsComponent/MySkills";
+import Welcome from "./Components/WelcomeComponent/Welcome";
 
 const Main = (props) => {
 	return (
@@ -10,6 +11,7 @@ const Main = (props) => {
 				<div className={styles.main_wrap}>
 					<MyName state={props.state}/>
 					<MySkills state={props.state}/>
+					<Welcome/>
 				</div>
 			</div>
 		</div>
