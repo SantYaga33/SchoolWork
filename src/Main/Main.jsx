@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Main.module.css';
 import MyName from "./Components/MyNameComponent/MyName";
+import MySkills from "./Components/MySkills/MySkills";
 
 const Main = (props) => {
 	return (
@@ -8,10 +9,11 @@ const Main = (props) => {
 			<div className={styles.main_container}>
 				<div className={styles.main_wrap}>
 					<MyName state={props.state}/>
+					<MySkills state={props.state}/>
 				</div>
 			</div>
 		</div>
 	);
-}
+};
 
 export default Main;

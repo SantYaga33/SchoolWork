@@ -1,4 +1,10 @@
+.name {
+    width: 100%;
+}
 .wrap {
+    margin: 50px auto;
+    padding: 0;
+    list-style-type: none;
     width: 350px;
     height: 40px;
     display: flex;
@@ -22,12 +28,10 @@
     background-color: #18b0f3;
     border: 1px solid  #18b0f3;
     transition: all 0.2s linear 0s;
-
 }
 .wrap .item:hover {
     color: #fff;
 }
-
 
 @keyframes jump {
     0% {

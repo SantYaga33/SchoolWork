@@ -1,0 +1,43 @@
+.wrap {
+    width: 800px;
+    border: 1px solid #18b0f3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.item {
+    width: 33%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #18b0f3;
+}
+.item:hover {
+    background-color: #18b0f3;
+    color: #ffffff;
+    transition: all 0.2s linear 0s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
