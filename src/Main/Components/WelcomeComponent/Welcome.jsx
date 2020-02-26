@@ -9,7 +9,7 @@ const Welcome = (props) => {
 				<h5>Познакомимся ?</h5>
 				<div className={styles.wrap}>
 					<WelcomeInput/>
-					<WelcomeButton/>
+					<WelcomeButton titleButton={props.state}/>
 				</div>
 			</div>
 		);

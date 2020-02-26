@@ -10,8 +10,8 @@ const Main = (props) => {
 			<div className={styles.main_container}>
 				<div className={styles.main_wrap}>
 					<MyName state={props.state}/>
-					<MySkills state={props.state}/>
-					<Welcome/>
+					<MySkills state={props.state.mySkills}/>
+					<Welcome state={props.state.titleButton}/>
 				</div>
 			</div>
 		</div>

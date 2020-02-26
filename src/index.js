@@ -9,7 +9,8 @@ const state = {
 		{id:1, letter:'A'},{id:1, letter:'T'},{ id:1, letter:'A'},{ id:1, letter:'B'},{ id:1, letter:'A'},
 		{ id:1, letter:'L'},{id:1, letter:'O'},{ id:1, letter:'V'},{ id:1, letter:''},{ id:1, letter:'M'},
 		{ id:1, letter:'U'},{ id:1, letter:'R'},{ id:1, letter:'A'},{ id:1, letter:'D'}],
-	mySkills:[{id:1, title:'Лидер'},{id:2, title:'Целеустремленный'},{id:3 ,title:'Жизнерадостный'}]
+	mySkills:[{id:1, title:'Лидер'},{id:2, title:'Целеустремленный'},{id:3 ,title:'Жизнерадостный'}],
+	titleButton:['отправить']
 };
 
 ReactDOM.render(<App state={state}/>, document.getElementById('root'));
