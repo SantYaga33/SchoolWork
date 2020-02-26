@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Main.module.css';
 import MyName from "./Components/MyNameComponent/MyName";
-import MySkills from "./Components/MySkills/MySkills";
+import MySkills from "./Components/MySkillsComponent/MySkills";
 
 const Main = (props) => {
 	return (
