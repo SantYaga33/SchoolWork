@@ -17,7 +17,9 @@ class App extends React.Component {
 		mySkills: [{id: 1, title: 'Лидер'}, {id: 2, title: 'Целеустремленный'}, {id: 3, title: 'Жизнерадостный'}],
 		titleButton: ['ожидание'],
 		buttonStatus: true,
-		activeClassBtn: 'wait'
+		activeClassBtn: 'wait',
+		visitors: [],
+		count: 0
 	};
 
 	inputRef = React.createRef();
@@ -38,7 +40,8 @@ class App extends React.Component {
 	};
 
 	addName = (title) => {
-		if (title.trim() === '') {
+		let newName = title.trim();
+		if (newName === '') {
 			this.inputRef.current.value = '';
 			this.setState({
 					buttonStatus: true,
@@ -46,11 +49,14 @@ class App extends React.Component {
 				}
 			);
 		} else {
-			alert(`Приветствую Вас ${title.trim()}!!!`);
+			alert(`Приветствую Вас ${newName}!!!`);
 			this.inputRef.current.value = '';
+			let newVisitor = {id: this.state.count, name: newName};
 			this.setState({
 					buttonStatus: true,
-					activeClassBtn: 'wait'
+					activeClassBtn: 'wait',
+					visitors: [...this.state.visitors, newVisitor],
+					count: this.state.count + 1
 				}
 			);
 		}
