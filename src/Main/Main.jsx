@@ -4,6 +4,7 @@ import MyName from "./Components/MyNameComponent/MyName";
 import MySkills from "./Components/MySkillsComponent/MySkills";
 import Welcome from "./Components/WelcomeComponent/Welcome";
 import Visitors from "./Components/ VisitorsComponent/Visitors";
+import Comment from "./Components/CommentComponent/Comment";
 
 const Main = (props) => {
 	return (
@@ -15,8 +16,9 @@ const Main = (props) => {
 					<Welcome state={props.state} inputRef={props.inputRef}
 							 addName={props.addName} buttonRef={props.buttonRef}
 							 onChange={props.onChange}/>
-					<Visitors/>
+					<Visitors state={props.state}/>
 				</div>
+					<Comment/>
 			</div>
 		</div>
 	);
