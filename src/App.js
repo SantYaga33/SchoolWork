@@ -15,7 +15,7 @@ class App extends React.Component {
 			{id: 9, letter: ''}, {id: 10, letter: 'M'}, {id: 11, letter: 'U'}, {id: 12, letter: 'R'},
 			{id: 13, letter: 'A'}, {id: 14, letter: 'D'}],
 		mySkills: [{id: 1, title: 'Лидер'}, {id: 2, title: 'Целеустремленный'}, {id: 3, title: 'Жизнерадостный'}],
-		titleButton: ['ожидание'],
+		titleButton: 'Ожидание',
 		buttonStatus: true,
 		activeClassBtn: 'wait',
 		visitors: [],
@@ -27,13 +27,15 @@ class App extends React.Component {
 	onChange() {
 		this.setState({
 				buttonStatus: false,
-				activeClassBtn: 'send'
+				activeClassBtn: 'send',
+				titleButton: 'Отправить'
 			}
 		);
 		if (this.inputRef.current.value === '') {
 			return this.setState({
 					buttonStatus: true,
-					activeClassBtn: 'wait'
+					activeClassBtn: 'wait',
+					titleButton: 'Ожидание'
 				}
 			)
 		}
@@ -45,7 +47,8 @@ class App extends React.Component {
 			this.inputRef.current.value = '';
 			this.setState({
 					buttonStatus: true,
-					activeClassBtn: 'wait'
+					activeClassBtn: 'wait',
+					titleButton: 'Ожидание'
 				}
 			);
 		} else {
@@ -55,6 +58,7 @@ class App extends React.Component {
 			this.setState({
 					buttonStatus: true,
 					activeClassBtn: 'wait',
+					titleButton: 'Ожидание',
 					visitors: [...this.state.visitors, newVisitor],
 					count: this.state.count + 1
 				}
