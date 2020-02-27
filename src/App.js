@@ -1,10 +1,67 @@
 import React from 'react';
 import Main from "./Main/Main";
 
-const App= (props)=> {
-  return (
-    <Main state={props.state}/>
-  );
-};
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.onChange = this.onChange.bind(this);
+
+	}
+
+	state = {
+		letters: [
+			{id: 1, letter: 'A'}, {id: 2, letter: 'T'}, {id: 3, letter: 'A'}, {id: 4, letter: 'B'},
+			{id: 5, letter: 'A'}, {id: 6, letter: 'L'}, {id: 7, letter: 'O'}, {id: 8, letter: 'V'},
+			{id: 9, letter: ''}, {id: 10, letter: 'M'}, {id: 11, letter: 'U'}, {id: 12, letter: 'R'},
+			{id: 13, letter: 'A'}, {id: 14, letter: 'D'}],
+		mySkills: [{id: 1, title: 'Лидер'}, {id: 2, title: 'Целеустремленный'}, {id: 3, title: 'Жизнерадостный'}],
+		titleButton: ['ожидание'],
+		buttonStatus: true,
+		activeClassBtn: 'wait'
+	};
+
+	inputRef = React.createRef();
+
+	onChange() {
+		this.setState({
+				buttonStatus: false,
+				activeClassBtn: 'send'
+			}
+		);
+		if (this.inputRef.current.value === '') {
+			return this.setState({
+					buttonStatus: true,
+					activeClassBtn: 'wait'
+				}
+			)
+		}
+	};
+
+	addName = (title) => {
+		if (title.trim() === '') {
+			this.inputRef.current.value = '';
+			this.setState({
+					buttonStatus: true,
+					activeClassBtn: 'wait'
+				}
+			);
+		} else {
+			alert(`Приветствую Вас ${title.trim()}!!!`);
+			this.inputRef.current.value = '';
+			this.setState({
+					buttonStatus: true,
+					activeClassBtn: 'wait'
+				}
+			);
+		}
+	};
+
+	render = () => {
+		return (
+			<Main state={this.state} inputRef={this.inputRef} buttonRef={this.buttonRef} addName={this.addName}
+				  onChange={this.onChange}/>
+		);
+	}
+}
 
 export default App;

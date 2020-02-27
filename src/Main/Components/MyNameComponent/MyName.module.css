@@ -1,6 +1,7 @@
 .name {
     width: 100%;
 }
+
 .wrap {
     margin: 50px auto;
     padding: 0;
@@ -15,6 +16,7 @@
     color: #18b0f3;
     transition: all 0.2s linear 0s;
 }
+
 .item {
     display: flex;
     justify-content: center;
@@ -24,11 +26,13 @@
     min-width: 20px;
     animation: jump 2s both;
 }
+
 .wrap:hover {
     background-color: #18b0f3;
-    border: 1px solid  #18b0f3;
+    border: 1px solid #18b0f3;
     transition: all 0.2s linear 0s;
 }
+
 .wrap .item:hover {
     color: #fff;
 }

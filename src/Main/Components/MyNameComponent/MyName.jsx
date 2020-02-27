@@ -6,7 +6,6 @@ const MyName = (props) => {
 
 	const actionLetter = props.state.letters.map(el => <AnimatedItem className={styles.item}
 																	 key={el.id} letter={el.letter}/>);
-
 	return (
 		<div className={styles.name}>
 			<ul className={styles.wrap}>

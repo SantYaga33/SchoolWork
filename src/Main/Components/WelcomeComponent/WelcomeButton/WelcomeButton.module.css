@@ -4,7 +4,8 @@
     display: flex;
     box-sizing: border-box;
 }
-.button {
+
+button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,8 +13,56 @@
     outline: none;
     border: none;
     box-sizing: border-box;
-    background-color: #18b0f3;
     color: #fff;
     font-size: 16px;
     text-transform: capitalize;
 }
+
+.wait {
+    -webkit-animation: color-change-wait 5s linear infinite alternate both;
+    animation: color-change-wait 5s linear infinite alternate both;
+    background-color: #ff0000;
+}
+
+.send {
+    background-color: #00cc00;
+}
+
+
+@-webkit-keyframes color-change-wait {
+    0% {
+        background: #f38139;
+    }
+    50% {
+        background: #b22cff;
+    }
+    100% {
+        background: #ea2222;
+    }
+}
+
+@keyframes color-change-wait {
+    0% {
+        background: #f38139;
+    }
+    50% {
+        background: #b22cff;
+    }
+    100% {
+        background: #ea2222;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

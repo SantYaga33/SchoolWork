@@ -4,13 +4,13 @@ import ItemSkills from "./ItemSkills";
 
 const MySkills = (props) => {
 
-	const Item =props.state.map( el => <ItemSkills className={styles.item} key={el.id} skillValue={el.title}/>);
+	const Item = props.state.map(el => <ItemSkills className={styles.item} key={el.id} skillValue={el.title}/>);
 
-		return (
-			<div className={ styles.wrap } >
-				{ Item }
-			</div>
-		);
+	return (
+		<div className={styles.wrap}>
+			{Item}
+		</div>
+	);
 };
 
 export default MySkills;
