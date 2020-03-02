@@ -24,6 +24,7 @@ class App extends React.Component {
 
 	inputRef = React.createRef();
 
+
 	onChange() {
 		this.setState({
 				buttonStatus: false,

@@ -6,6 +6,7 @@ const WelcomeInput = (props) => {
 		<div className={styles.input_wrap}>
 			<input ref={props.inputRef} type="text" className={styles.input} placeholder='Введите Ваше имя'
 				   onChange={props.onChange}/>
+				   
 		</div>
 	);
 };
