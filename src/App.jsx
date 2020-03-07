@@ -89,7 +89,7 @@ class App extends React.Component {
 						<Menu navLinks={this.state.navLinks}/>
 					</div>
 					<div className={styles.main_pages}>
-						<Route path='/' exact={true} render={() => <First_page/>}/>
+						<Route path='/SchoolWork/' exact={true} render={() => <First_page/>}/>
 						<Route path='/Monday' exact={true}
 							   render={() => <Main state={this.state} inputRef={this.inputRef}
 												   buttonRef={this.buttonRef}

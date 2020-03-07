@@ -15,7 +15,7 @@ const Menu = (props) => {
 		<div className='menu_wrap'>
 			<div className='content'>
 				<nav className="menu menu--mohe">
-					<NavLink to='/' className="menu__item">
+					<NavLink to='/SchoolWork/' className="menu__item">
 						<span className="menu__item-name first_child">Menu</span>
 					</NavLink>
 					{newNavLinks}
