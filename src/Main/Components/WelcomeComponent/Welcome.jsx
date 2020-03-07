@@ -4,13 +4,21 @@ import WelcomeInput from "./WelcomeInput/WelcomeInput";
 import WelcomeButton from "./WelcomeButton/WelcomeButton";
 
 const Welcome = (props) => {
+
+	const onAddNamePress = (e) => {
+		if ( e.key === "Enter" ) {
+			props.addName();
+		} else {
+			return false
+		}
+	};
+
 	return (
 		<div className={styles.welcome}>
 			<h5>Познакомимся ?</h5>
 			<div className={styles.wrap}>
-				<WelcomeInput inputRef={props.inputRef} onChange={props.onChange}/>
-				<WelcomeButton inputRef={props.inputRef} addName={props.addName}
-							   state={props.state} buttonRef={props.buttonRef}/>
+				<WelcomeInput  state={props.state}  onChange={props.onChange} onKeyPress={onAddNamePress}/>
+				<WelcomeButton  addName={props.addName} state={props.state} buttonRef={props.buttonRef}/>
 			</div>
 		</div>
 	);

@@ -4,8 +4,7 @@ import styles from './WelcomeButton.module.css';
 const WelcomeButton = (props) => {
 
 	const onAddNameClick = () => {
-		let newName = props.inputRef.current.value;
-		props.addName(newName);
+		props.addName();
 	};
 
 	return (

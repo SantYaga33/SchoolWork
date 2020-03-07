@@ -1,0 +1,46 @@
+/*== общие  стили для ==*/
+a {
+    text-decoration: none;
+    /*color: #5d93d8;*/
+    color: #9ad6fc;
+    outline: none;
+}
+
+a:hover,
+a:focus {
+    /*color: #423c2b;*/
+    color:  #171754;
+    outline: none;
+}
+
+/*====================*/
+
+
+.main_wrap {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #2b34f5;
+}
+.main_nav {
+    width: 25%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: transparent;
+
+    border-right: 1px solid #171754;
+}
+.main_pages {
+    width: 75%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: transparent;
+}

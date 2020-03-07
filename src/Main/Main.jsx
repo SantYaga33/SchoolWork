@@ -13,9 +13,8 @@ const Main = (props) => {
 				<div className={styles.main_wrap}>
 					<MyName state={props.state}/>
 					<MySkills state={props.state.mySkills}/>
-					<Welcome state={props.state} inputRef={props.inputRef}
-							 addName={props.addName} buttonRef={props.buttonRef}
-							 onChange={props.onChange}/>
+					<Welcome state={props.state} addName={props.addName} buttonRef={props.buttonRef}
+																		 onChange={props.onChange}/>
 					<Visitors state={props.state}/>
 				</div>
 					<Comment/>
