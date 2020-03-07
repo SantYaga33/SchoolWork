@@ -5,12 +5,15 @@ import { NavLink } from "react-router-dom";
 
 
 const Menu = (props) => {
+	const Test =(e) =>{
+		console.log(e.currentTarget.textContent);
+	};
 
 	const newNavLinks = props.navLinks.map (el => <Generate_li key={el.id} title={el.title} to={`/${el.title}`}
 															   discr={el.description} active='link_active'
 															   classForTitle='menu__item-name'
 															   classForDiscr='menu__item-label'
-															   className='menu__item'/>);
+															   className='menu__item' onClick={Test} />);
 	return (
 		<div className='menu_wrap'>
 			<div className='content'>
