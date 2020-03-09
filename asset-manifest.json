@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/SchoolWork/static/css/main.8bd49404.chunk.css",
+    "main.js": "/SchoolWork/static/js/main.cb0adef5.chunk.js",
+    "main.js.map": "/SchoolWork/static/js/main.cb0adef5.chunk.js.map",
+    "runtime-main.js": "/SchoolWork/static/js/runtime-main.7eb779de.js",
+    "runtime-main.js.map": "/SchoolWork/static/js/runtime-main.7eb779de.js.map",
+    "static/js/2.e87e7da0.chunk.js": "/SchoolWork/static/js/2.e87e7da0.chunk.js",
+    "static/js/2.e87e7da0.chunk.js.map": "/SchoolWork/static/js/2.e87e7da0.chunk.js.map",
+    "index.html": "/SchoolWork/index.html",
+    "precache-manifest.e7c01bdb6bb9f765e915a63946013e15.js": "/SchoolWork/precache-manifest.e7c01bdb6bb9f765e915a63946013e15.js",
+    "service-worker.js": "/SchoolWork/service-worker.js",
+    "static/css/main.8bd49404.chunk.css.map": "/SchoolWork/static/css/main.8bd49404.chunk.css.map",
+    "static/js/2.e87e7da0.chunk.js.LICENSE.txt": "/SchoolWork/static/js/2.e87e7da0.chunk.js.LICENSE.txt",
+    "static/media/Main.module.css": "/SchoolWork/static/media/main_bg3.1b06f074.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7eb779de.js",
+    "static/js/2.e87e7da0.chunk.js",
+    "static/css/main.8bd49404.chunk.css",
+    "static/js/main.cb0adef5.chunk.js"
+  ]
+}
