@@ -4,6 +4,7 @@ import Main from "./Main/Main";
 import Menu from "./Menu/Menu";
 import First_page from "./First_Page/First_page";
 import { BrowserRouter, Route } from "react-router-dom";
+import Tuesday from "./Tuesday/Tuesday";
 
 class App extends React.Component {
 	constructor (props) {
@@ -95,7 +96,7 @@ class App extends React.Component {
 												   buttonRef={this.buttonRef}
 												   addName={this.addName}
 												   onChange={this.onChange}/>}/>
-						<Route path='/Tuesday' exact={true} render={() => <First_page/>}/>
+						<Route path='/Tuesday' exact={true} render={() => <Tuesday/>}/>
 						<Route path='/Wednesday' exact={true} render={() => <First_page/>}/>
 						<Route path='/Thursday' exact={true} render={() => <First_page/>}/>
 						<Route path='/Friday' exact={true} render={() => <First_page/>}/>
