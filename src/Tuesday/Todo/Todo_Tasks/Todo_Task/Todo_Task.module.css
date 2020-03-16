@@ -13,6 +13,8 @@
     align-items: center;
     justify-content: center;
     height: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /*===== анимация для поля title task */
@@ -36,6 +38,7 @@
     letter-spacing: 8px;
     font-weight: bold;
     overflow: hidden;
+    overflow-x: auto;
 }
 
 .tasks_title__wrap .liquid {

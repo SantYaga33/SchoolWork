@@ -87,5 +87,12 @@
     width: 11px;
 
 }
+::-webkit-scrollbar-track {
+    border-radius: 6px;
+}
+::-webkit-scrollbar:horizontal{
+    height: 12px;
+
+}
 
 

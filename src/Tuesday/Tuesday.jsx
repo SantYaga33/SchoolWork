@@ -1,6 +1,6 @@
 import React from 'react';
 import './Tuesday.css';
-import { saveState, restoreState } from '../../../Indicator/src/Main/localStorage'
+import { saveState, restoreState } from './localStorage'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import Root from "./Todo/Root";
