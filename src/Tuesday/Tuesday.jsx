@@ -4,6 +4,7 @@ import { saveState, restoreState } from './localStorage'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import Root from "./Todo/Root";
+import Loader from "./Loader/Loader";
 
 
 library.add (fab);
@@ -37,6 +38,7 @@ class Tuesday extends React.Component {
 		],
 		filterValue: "All",
 		nextTaskId: 3,
+		loader: true
 	};
 
 	componentDidMount () {
@@ -46,44 +48,14 @@ class Tuesday extends React.Component {
 		} else {
 			this.setState (this.state);
 		}
+		setTimeout (() => {
+			this.setState ({
+				loader: false
+			});
+
+		}, 3000)
 	};
 
-	// saveState = () => {
-	// 	let stateAsString = JSON.stringify (this.state);
-	// 	localStorage.setItem ('our-state', stateAsString);
-	// };
-	//
-	// restoreState = () => {
-	// 	let state = {
-	// 		tasks: [
-	// 			{
-	// 				id: 0,
-	// 				title: 'Example',
-	// 				isDone: false,
-	// 				priority: 'high'
-	// 			},
-	// 			{
-	// 				id: 1,
-	// 				title: 'Example',
-	// 				isDone: false,
-	// 				priority: 'low'
-	// 			},
-	// 			{
-	// 				id: 2,
-	// 				title: 'Example',
-	// 				isDone: true,
-	// 				priority: 'medium'
-	// 			},
-	// 		],
-	// 		filterValue: 'All',
-	// 		nextTaskId: 3,
-	// 	};
-	// 	let stateAsString = localStorage.getItem ('our-state');
-	// 	if ( stateAsString !== null ) {
-	// 		state = JSON.parse (stateAsString);
-	// 	}
-	// 	this.setState (state);
-	// };
 
 	addTask = (title) => {
 		let newTask = {
@@ -141,20 +113,23 @@ class Tuesday extends React.Component {
 
 	render = () => {
 		return (
-			<div className='main_wrap'>
-				<div className='main_opacity'>
-					<div className="todoList">
-						<Root state={this.state} addTask={this.addTask} changeFilter={this.changeFilter}
-							  changeTitle={this.changeTitle} changeStatus={this.changeStatus}
-							  deleteTask={this.deleteTask}
-							  changePriority={this.changePriority}
-							  tasks={this.state.tasks.filter (t => {
-								  return this.state.filterValue === "Active" && t.isDone === false ||
-									  this.state.filterValue === "Completed" && t.isDone === true ||
-									  this.state.filterValue === "All"
-							  })}/>
+			<div className='wrap_tuesday'>
+				{this.state.loader ? <Loader /> :
+				<div className='main_wrap'>
+					<div className='main_opacity'>
+						<div className="todoList">
+							<Root state={this.state} addTask={this.addTask} changeFilter={this.changeFilter}
+								  changeTitle={this.changeTitle} changeStatus={this.changeStatus}
+								  deleteTask={this.deleteTask}
+								  changePriority={this.changePriority}
+								  tasks={this.state.tasks.filter (t => {
+									  return this.state.filterValue === "Active" && t.isDone === false ||
+										  this.state.filterValue === "Completed" && t.isDone === true ||
+										  this.state.filterValue === "All"
+								  })}/>
+						</div>
 					</div>
-				</div>
+				</div>}
 			</div>
 		);
 	};

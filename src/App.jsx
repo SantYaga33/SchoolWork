@@ -3,7 +3,7 @@ import styles from './App.module.css'
 import Main from "./Main/Main";
 import Menu from "./Menu/Menu";
 import First_page from "./First_Page/First_page";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route } from "react-router-dom";
 import Tuesday from "./Tuesday/Tuesday";
 
 class App extends React.Component {
@@ -31,7 +31,7 @@ class App extends React.Component {
 		titleNewTask: '',
 		navLinks: [
 			{ id: 1, title: 'Monday', description: 'Работа с инпутами' },
-			{ id: 2, title: 'Tuesday', description: 'Работа с инпутами' },
+			{ id: 2, title: 'Tuesday', description: 'Делаем свой Todo' },
 			{ id: 3, title: 'Wednesday', description: 'Работа с инпутами' },
 			{ id: 4, title: 'Thursday', description: 'Работа с инпутами' },
 			{ id: 5, title: 'Friday', description: 'Работа с инпутами' }
@@ -84,7 +84,7 @@ class App extends React.Component {
 
 	render = () => {
 		return (
-			<BrowserRouter>
+			<HashRouter>
 				<div className={styles.main_wrap}>
 					<div className={styles.main_nav}>
 						<Menu navLinks={this.state.navLinks}/>
@@ -102,7 +102,7 @@ class App extends React.Component {
 						<Route path='/Friday' exact={true} render={() => <First_page/>}/>
 					</div>
 				</div>
-			</BrowserRouter>
+			</HashRouter>
 		);
 	}
 }
