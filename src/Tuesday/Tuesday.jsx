@@ -1,13 +1,10 @@
 import React from 'react';
 import './Tuesday.css';
-import { saveState, restoreState } from './localStorage'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import Root from "./Todo/Root";
+import TodoList from "./TodoList/TodoList";
 import Loader from "./Loader/Loader";
+import SideBar from "./SideBar/SideBar";
+import WelcomePage from "./WelcomePage/WelcomePage";
 
-
-library.add (fab);
 
 class Tuesday extends React.Component {
 	constructor (props) {
@@ -15,39 +12,19 @@ class Tuesday extends React.Component {
 	}
 
 	state = {
-
-		tasks: [
-			{
-				id: 0,
-				title: 'Example1',
-				isDone: false,
-				priority: 'high'
-			},
-			{
-				id: 1,
-				title: 'Example2',
-				isDone: false,
-				priority: 'low'
-			},
-			{
-				id: 2,
-				title: 'Example3',
-				isDone: true,
-				priority: 'medium'
-			},
+		todolists: [
+			{ id: 0, titleItem: 'My notice', display: true, selectItem: false },
 		],
-		filterValue: "All",
-		nextTaskId: 3,
-		loader: true
+		errorTitle: false,
+		titleItem: '',
+		nextTaskId: 1,
+		loader: true,
+		isTodo: true
+
 	};
 
 	componentDidMount () {
-		let newState = restoreState ();
-		if ( !!newState ) {
-			this.setState (newState);
-		} else {
-			this.setState (this.state);
-		}
+		this.restoreState ();
 		setTimeout (() => {
 			this.setState ({
 				loader: false
@@ -56,84 +33,184 @@ class Tuesday extends React.Component {
 		}, 3000)
 	};
 
+	saveState = () => {
+		let stateAsString = JSON.stringify (this.state);
+		localStorage.setItem ('Todo-list', stateAsString);
+	};
 
-	addTask = (title) => {
-		let newTask = {
+	restoreState = () => {
+		let state = {
+			tasks: [
+				{
+					id: 0,
+					title: 'Example',
+					isDone: false,
+					priority: 'high'
+				},
+				{
+					id: 1,
+					title: 'Example',
+					isDone: false,
+					priority: 'low'
+				},
+				{
+					id: 2,
+					title: 'Example',
+					isDone: true,
+					priority: 'medium'
+				},
+			],
+			filterValue: 'All',
+			nextTaskId: 3,
+		};
+		let stateAsString = localStorage.getItem ('Todo-list');
+		if ( stateAsString !== null ) {
+			state = JSON.parse (stateAsString);
+		}
+		this.setState (state);
+	};
+
+	addItem = (title) => {
+		let newItem = {
 			id: this.state.nextTaskId,
-			title: title,
-			isDone: false,
-			priority: 'low'
+			titleItem: title,
+			display: false,
+			selectItem: false
 		};
 
-		let newTasks = [ ...this.state.tasks, newTask ];
+		let newTodolists = [ ...this.state.todolists, newItem ];
 		this.setState ({
-			tasks: newTasks,
+			todolists: newTodolists,
 			nextTaskId: this.state.nextTaskId + 1,
-		}, () => {saveState (this.state);});
+		}, () => {
+			this.saveState (this.state);
+			this.setState ({
+				isTodo: true,
+				todolists: this.state.todolists.map ((todo, index) => {
+					if ( index === this.state.todolists.length - 1 ) {
+						return { ...todo, display: true, selectItem: true }
+					} else {
+						return { ...todo, display: false, selectItem: false }
+					}
+				})
 
-	};
-
-	changeFilter = (newFilterValue) => {
-		this.setState ({
-			filterValue: newFilterValue
-		}, () => {saveState (this.state);})
-	};
-	changeTask = (taskId, obj) => {
-		let newTasks = this.state.tasks.map (t => {
-			if ( t.id === taskId ) {
-				return { ...t, ...obj }
-			} else {
-				return t
-			}
+			});
 		});
+	};
+
+	onAddItemClick = () => {
+		let newTitleItem = this.state.titleItem;
 		this.setState ({
-			tasks: newTasks
-		}, () => {saveState (this.state);})
+			titleItem: ''
+		});
+		if ( newTitleItem === '' ) {
+			this.setState ({
+				errorTitle: true
+			}, () => {
+				this.saveState (this.state);});
+		} else {
+			this.setState ({
+				errorTitle: false
+			}, () => {
+				this.saveState (this.state);});
+			this.addItem (newTitleItem);
+		}
+	};
+	onAddItemKeyPress = (e) => {
+		if ( e.key === "Enter" ) {
+			let newTitleItem = this.state.titleItem;
+			this.setState ({
+				titleItem: ''
+			});
+			if ( newTitleItem === '' ) {
+				this.setState ({
+					errorTitle: true
+				}, () => {
+					this.saveState (this.state);});
+			} else {
+				this.setState ({
+					errorTitle: false
+				}, () => {
+					this.saveState (this.state);});
+				this.addItem (newTitleItem);
+			}
+		}
 	};
 
-	changeStatus = (taskId, isDone) => {
-		this.changeTask (taskId, { isDone: isDone });
-
-	};
-	changeTitle = (taskId, title) => {
-		this.changeTask (taskId, { title: title });
-
-	};
-	changePriority = (taskId, priority) => {
-		this.changeTask (taskId, { priority: priority });
-
-	};
-
-	deleteTask = (taskId) => {
-		let newTasks = this.state.tasks.filter (t => t.id !== taskId);
+	onTitleItemChange = (e) => {
 		this.setState ({
-			tasks: newTasks
-		}, () => {saveState (this.state);})
+			errorTitle: false,
+			titleItem: e.currentTarget.value
+		}, () => {
+			this.saveState (this.state);});
+
+	};
+	choiceItem = (itemId) => {
+		this.setState ({
+			todolists: this.state.todolists.map (todo => {
+				if ( todo.id === itemId ) {
+					return { ...todo, display: true, selectItem: true }
+				} else {
+					return { ...todo, display: false, selectItem: false }
+				}
+			})
+		}, () => {
+			this.saveState (this.state);});
 	};
 
-	render = () => {
+	deleteItem = (itemId) => {
+		if (this.state.todolists.length-1 !== 0 ) {
+			this.setState ({
+				isTodo: true,
+				todolists: this.state.todolists.filter (todo => todo.id !== itemId)
+			}, () => {
+				this.setState ({
+					todolists: this.state.todolists.map ((todo, index) => {
+						if ( index === this.state.todolists.length - 1 ) {
+							return { ...todo, display: true, selectItem: true }
+						} else {
+							return { ...todo, display: false, selectItem: false }
+						}
+					})
+				});
+				this.saveState (this.state);
+			});
+		} else {
+			this.setState ({
+				todolists: this.state.todolists.filter (todo => todo.id !== itemId),
+				isTodo: false
+			}, () => {
+				this.saveState (this.state);});
+		}
+	};
+
+
+	render () {
+		let todoListElements = this.state.todolists.map (td =>
+			<TodoList id={td.id} title={td.titleItem} display={td.display ? 'display_block' : 'display_none'}/>);
+
 		return (
-			<div className='wrap_tuesday'>
-				{this.state.loader ? <Loader /> :
-				<div className='main_wrap'>
-					<div className='main_opacity'>
-						<div className="todoList">
-							<Root state={this.state} addTask={this.addTask} changeFilter={this.changeFilter}
-								  changeTitle={this.changeTitle} changeStatus={this.changeStatus}
-								  deleteTask={this.deleteTask}
-								  changePriority={this.changePriority}
-								  tasks={this.state.tasks.filter (t => {
-									  return this.state.filterValue === "Active" && t.isDone === false ||
-										  this.state.filterValue === "Completed" && t.isDone === true ||
-										  this.state.filterValue === "All"
-								  })}/>
+			<div className='main_page'>
+				{this.state.loader ? <Loader/> :
+					<div className='main_page__wrap'>
+						<SideBar errorTitle={this.state.errorTitle} todolists={this.state.todolists}
+								 choiceItem={this.choiceItem}
+								 deleteItem={this.deleteItem} onAddItemKeyPress={this.onAddItemKeyPress}
+								 onTitleItemChange={this.onTitleItemChange} titleItem={this.state.titleItem}
+								 onAddItemClick={this.onAddItemClick}/>
+						<div className='join'></div>
+
+						<div className='wrap_items'>
+							{ this.state.isTodo ?
+								<div>{ todoListElements }</div>
+								: <WelcomePage/>
+							}
 						</div>
 					</div>
-				</div>}
+				}
 			</div>
 		);
-	};
-
+	}
 }
 
 export default Tuesday;

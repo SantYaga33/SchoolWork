@@ -1,0 +1,46 @@
+.welcome_main {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    min-width: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #363636;
+    background: #424242 none repeat scroll 0 0;
+
+}
+
+.welcome_wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 0 0 15px;
+    border: 1px solid #363636;
+    border-radius: 5px;
+    background: #424242 none repeat scroll 0 0;
+}
+
+.welcome_title {
+    color: #ff0066;
+}
+
+.welcome_text {
+    color: #ffcc00;
+}
+
+.welcome_wrap span {
+    color: #33cc33;
+}

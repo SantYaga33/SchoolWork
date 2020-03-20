@@ -6,8 +6,6 @@
     height: 50px;
     margin-bottom: 10px;
     position: relative;
-    /*border:1px  solid  #363636;*/
-
 
 }
 
@@ -40,5 +38,6 @@
     cursor: pointer;
     padding: 2px 5px;
     border: 1px solid #088dcd;
+    cursor: pointer;
 
 }

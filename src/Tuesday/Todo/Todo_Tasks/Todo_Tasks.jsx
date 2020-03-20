@@ -29,7 +29,6 @@ class TodoTasks extends React.Component {
 			});
 			this.props.addTask (newText);
 		}
-
 	};
 	onAddTaskKeyPress = (e) => {
 		if ( e.key === "Enter" ) {
@@ -47,7 +46,6 @@ class TodoTasks extends React.Component {
 				});
 				this.props.addTask (newText);
 			}
-
 		}
 	};
 
@@ -61,11 +59,11 @@ class TodoTasks extends React.Component {
 	errorClass = styles.inputError;
 	render = () => {
 
-		let tasksElements = this.props.tasks.map(task => {
+		let tasksElements = this.props.tasks.map (task => {
 			return (
-				<TodoTask  changeStatus={this.props.changeStatus} key={task.id} id={task.id} priority={task.priority}
-						   task={task} changeTitle={this.props.changeTitle} deleteTask={this.props.deleteTask}
-						   changePriority={this.props.changePriority}/>
+				<TodoTask changeStatus={this.props.changeStatus} key={task.id} id={task.id} priority={task.priority}
+						  task={task} changeTitle={this.props.changeTitle} deleteTask={this.props.deleteTask}
+						  changePriority={this.props.changePriority}/>
 			)
 		});
 		return (
@@ -73,8 +71,8 @@ class TodoTasks extends React.Component {
 				<div className={styles.tasks_wrap__input}>
 					<div className={styles.tasks_input}>
 						<input className={this.state.error ? this.errorClass : ''} value={this.state.title}
-							   type="text" placeholder='Enter task name'  onKeyPress={this.onAddTaskKeyPress}
-							   onChange={this.onTitleChange} maxlength="25"/>
+							   type="text" placeholder='Enter task name' onKeyPress={this.onAddTaskKeyPress}
+							   onChange={this.onTitleChange} maxLength="25"/>
 						<button className={styles.tasks_button} onClick={this.onAddTaskClick}>add</button>
 					</div>
 				</div>

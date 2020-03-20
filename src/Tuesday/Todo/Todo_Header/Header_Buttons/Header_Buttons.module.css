@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     height: inherit;
+    color: black;
 
 }
 
@@ -15,6 +16,7 @@
     background-color: #088dcd;
     font-size: 16px;
     cursor: pointer;
+    color: black;
 }
 /*==== анимация кнопок в header*/
 

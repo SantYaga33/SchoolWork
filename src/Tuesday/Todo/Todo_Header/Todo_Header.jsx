@@ -27,7 +27,7 @@ class Header extends React.Component {
 	render () {
 		return (
 			<div className={styles.header}>
-				<div className={styles.header_title}>New Tasks</div>
+				<div className={styles.header_title}>{this.props.title}</div>
 				<div className={styles.header_logo}>
 					<div className={styles.header_logo__icon}>
 						<FontAwesomeIcon icon={[ 'fab', 'sith' ]} spin size='lg'/>

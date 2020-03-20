@@ -1,17 +1,19 @@
 .tasks_wrap {
     height: 500px;
     overflow-y: overlay;
+    /*overflow-y: auto;*/
     width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0;
+    margin-top: 10px;
     padding: 0 0 15px 0;
     border: 1px solid #363636;
     border-radius: 5px;
     background: #424242 none repeat scroll 0 0;
 }
+
 .tasks_wrap__input {
     height: 68px;
     width: 92%;
@@ -25,6 +27,7 @@
     z-index: 100;
     background-color: #424242;
 }
+
 .tasks_input {
     width: 100%;
     display: flex;
@@ -45,7 +48,8 @@
     box-sizing: border-box;
     border: 1px solid transparent;
 }
-.tasks_input  .inputError  {
+
+.tasks_input .inputError {
     border: 1px solid red;
 }
 
@@ -54,6 +58,9 @@
     height: inherit;
     background-color: #088dcd;
     cursor: pointer;
+    color: black;
+    font-size: 14px;
+    text-transform: lowercase;
 }
 
 /*===== анимация для кнопки добавдления task*/
@@ -130,6 +137,7 @@
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
+
 }
 
 .tasks_title__wrap .task_title {
@@ -207,6 +215,7 @@
     align-items: center;
     justify-content: space-between;
     height: inherit;
+    color: black;
 
 }
 
@@ -216,8 +225,8 @@
     justify-content: center;
     align-items: center;
     height: 31%;
-    /*background-color:  #ffcc00;*/
     cursor: pointer;
+    color: black;
 
     border-left: 1px solid #363636;
 
@@ -264,6 +273,7 @@
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
 }
 
 .task_buttons button:active {
@@ -301,6 +311,7 @@
     height: inherit;
     background-color: #088dcd;
     cursor: pointer;
+    color: black;
 }
 
 /*===== анимация кнопки delete */
@@ -313,6 +324,7 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
     background: #088dcd;
+    color: black;
     -webkit-transition-property: color;
     transition-property: color;
     -webkit-transition-duration: 0.3s;

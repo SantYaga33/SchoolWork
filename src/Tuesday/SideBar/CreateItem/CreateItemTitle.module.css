@@ -1,0 +1,109 @@
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    background: none 0px 0px repeat scroll rgb(68, 68, 68);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(83, 83, 83);
+    border-image: initial;
+    transition: all 0.15s linear 0s;
+    cursor: pointer;
+    color: black;
+}
+
+.item:hover {
+    box-shadow: rgb(49, 56, 60) 0px 8px 8px;
+    border-color: transparent;
+    transition: all 0.15s linear 0s;
+}
+
+.select {
+    border: 1px solid #088dcd;
+}
+
+.item_title {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #088dcd;
+}
+
+.item_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 1px;
+    padding-right: 0;
+    box-sizing: border-box;
+    width: 15%;
+    height: 100%;
+
+}
+
+.item_button button {
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: all 0.15s linear 0s;
+    cursor: pointer;
+}
+
+
+/*===== анимация кнопки delete */
+
+.item_button button {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    background: #088dcd;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.item_button button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: red;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.item_button button:hover, .item_button button:focus, .item_button button:active {
+    color: #000;
+}
+
+.item_button button:hover:before, .item_button button:focus:before, .item_button button:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+/*=====*/
+
