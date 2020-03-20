@@ -25,7 +25,7 @@ class CreateItemTitle extends React.Component {
 				<div className={styles.item_title} onClick={this.onChoiceItem}>{this.props.title}</div>
 				<div className={styles.item_button} onClick={this.onDeleteItem}>
 					<button>
-						<FontAwesomeIcon className={styles.item_icon} icon={faTrashAlt} size='lg'/>
+						<FontAwesomeIcon className={styles.item_icon} icon={faTrashAlt}/>
 					</button>
 				</div>
 			</li>
