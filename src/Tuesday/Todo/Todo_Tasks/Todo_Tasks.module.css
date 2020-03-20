@@ -145,10 +145,12 @@
     z-index: 1;
     color: #fff;
     width: 100%;
-    font-size: 20px;
-    letter-spacing: 8px;
+    font-size: 16px;
+    /*letter-spacing: 8px;*/
     font-weight: bold;
     overflow: hidden;
+    overflow-x: auto;
+    padding-left: 27px;
 }
 
 .tasks_title__wrap .liquid {
