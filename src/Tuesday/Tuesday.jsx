@@ -13,7 +13,7 @@ class Tuesday extends React.Component {
 
 	state = {
 		todolists: [
-			{ id: 0, titleItem: 'My notice', display: true, selectItem: false },
+			{ id: 0, titleItem: 'My notice', display: true, selectItem: true },
 		],
 		errorTitle: false,
 		titleItem: '',
@@ -83,7 +83,6 @@ class Tuesday extends React.Component {
 			todolists: newTodolists,
 			nextTaskId: this.state.nextTaskId + 1,
 		}, () => {
-			this.saveState (this.state);
 			this.setState ({
 				isTodo: true,
 				todolists: this.state.todolists.map ((todo, index) => {
@@ -94,7 +93,7 @@ class Tuesday extends React.Component {
 					}
 				})
 
-			});
+			}, () => this.saveState (this.state));
 		});
 	};
 
@@ -172,8 +171,7 @@ class Tuesday extends React.Component {
 							return { ...todo, display: false, selectItem: false }
 						}
 					})
-				});
-				this.saveState (this.state);
+				}, () => this.saveState (this.state));
 			});
 		} else {
 			this.setState ({
