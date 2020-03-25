@@ -4,20 +4,20 @@
     justify-content: center;
     align-items: center;
     height: inherit;
-    color: black;
 
 }
 
 .header_buttons button {
     width: 33%;
     border-right: 1px solid #424242;
-    border-left:  1px solid #424242;
+    border-left: 1px solid #424242;
     height: inherit;
     background-color: #088dcd;
     font-size: 16px;
     cursor: pointer;
-    color: black;
+
 }
+
 /*==== анимация кнопок в header*/
 
 @-webkit-keyframes hvr-bob {
@@ -34,6 +34,7 @@
         transform: translateY(-8px);
     }
 }
+
 @keyframes hvr-bob {
     0% {
         -webkit-transform: translateY(-8px);
@@ -48,25 +49,30 @@
         transform: translateY(-8px);
     }
 }
+
 @-webkit-keyframes hvr-bob-float {
     100% {
         -webkit-transform: translateY(-8px);
         transform: translateY(-8px);
     }
 }
+
 @keyframes hvr-bob-float {
     100% {
         -webkit-transform: translateY(-8px);
         transform: translateY(-8px);
     }
 }
+
 .header_buttons__item {
     display: inline-block;
     vertical-align: middle;
+    color: black;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
+
 .header_buttons__item:hover, .header_buttons__item:focus, .header_buttons__item:active {
     -webkit-animation-name: hvr-bob-float, hvr-bob;
     animation-name: hvr-bob-float, hvr-bob;

@@ -4,9 +4,9 @@ import './TodoList.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import Root from "./../Todo/Root";
-import {faTrashAlt} from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-library.add (fab,faTrashAlt);
+library.add (fab, faTrashAlt);
 
 class TodoList extends React.Component {
 	constructor (props) {
@@ -14,25 +14,33 @@ class TodoList extends React.Component {
 	}
 
 	state = {
-
 		tasks: [
 			{
 				id: 0,
 				title: 'Example',
 				isDone: false,
-				priority: 'high'
+				priority: 'high',
+				date: {  createDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)',
+					updateDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)',
+					finishedDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)' }
 			},
 			{
 				id: 1,
 				title: 'Example',
 				isDone: false,
-				priority: 'low'
+				priority: 'low',
+				date: { createDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)',
+					    updateDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)',
+				       finishedDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)' }
 			},
 			{
 				id: 2,
 				title: 'Example',
 				isDone: true,
-				priority: 'medium'
+				priority: 'medium',
+				date: { createDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)',
+					updateDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)',
+					finishedDate: 'Wed Mar 25 2020 18:21:54 GMT+0400 (Персидский залив)' }
 			},
 		],
 		filterValue: "All",
@@ -55,43 +63,52 @@ class TodoList extends React.Component {
 	};
 
 	restoreState = () => {
-		let state = {
-			tasks: [
-				{
-					id: 0,
-					title: 'Example',
-					isDone: false,
-					priority: 'high'
-				},
-				{
-					id: 1,
-					title: 'Example',
-					isDone: false,
-					priority: 'low'
-				},
-				{
-					id: 2,
-					title: 'Example',
-					isDone: true,
-					priority: 'medium'
-				},
-			],
-			filterValue: 'All',
-			nextTaskId: 3,
-		};
+		// let state = {
+		// 	tasks: [
+		// 		{
+		// 			id: 0,
+		// 			title: 'Example',
+		// 			isDone: false,
+		// 			priority: 'high'
+		// 		},
+		// 		{
+		// 			id: 1,
+		// 			title: 'Example',
+		// 			isDone: false,
+		// 			priority: 'low'
+		// 		},
+		// 		{
+		// 			id: 2,
+		// 			title: 'Example',
+		// 			isDone: true,
+		// 			priority: 'medium'
+		// 		},
+		// 	],
+		// 	filterValue: 'All',
+		// 	nextTaskId: 3,
+		// };
 		let stateAsString = localStorage.getItem ('our-state-' + this.props.id);
 		if ( stateAsString !== null ) {
-			state = JSON.parse (stateAsString);
+			let stateLocalStorage = JSON.parse (stateAsString);
+			this.setState (stateLocalStorage);
 		}
-		this.setState (state);
+
 	};
 
 	addTask = (title) => {
+		let newCreateDate = new Date ();
+		let createDateStr = newCreateDate+'';
+
+		// let lastIndex = createDateStr.lastIndexOf(' ');
+		//
+		// createDateStr = createDateStr.substring(0, lastIndex);
+		console.log (createDateStr);
 		let newTask = {
 			id: this.state.nextTaskId,
 			title: title,
 			isDone: false,
-			priority: 'low'
+			priority: 'low',
+			date: { createDate: createDateStr, updateDate: '', finishedDate: '' }
 		};
 
 		let newTasks = [ ...this.state.tasks, newTask ];
@@ -121,12 +138,26 @@ class TodoList extends React.Component {
 	};
 
 	changeStatus = (taskId, isDone) => {
-		this.changeTask (taskId, { isDone: isDone });
+		let newFinishedDate = new Date ();
+		let newTask = this.state.tasks.find ((task) => {
+			return task.id === taskId
+		})
+		let newTaskDate = { ...newTask.date, finishedDate: newFinishedDate +'' };
 
+
+		this.changeTask (taskId,
+			{
+				isDone: isDone,
+				date: newTaskDate
+			});
 	};
 	changeTitle = (taskId, title) => {
-		this.changeTask (taskId, { title: title });
-
+		let newUpdateDate = new Date ();
+		let newTask = this.state.tasks.find ((task) => {
+			return task.id === taskId
+		});
+		let newTaskDate = { ...newTask.date, updateDate: newUpdateDate +'' };
+		this.changeTask (taskId, { title: title, date: newTaskDate  });
 	};
 	changePriority = (taskId, priority) => {
 		this.changeTask (taskId, { priority: priority });

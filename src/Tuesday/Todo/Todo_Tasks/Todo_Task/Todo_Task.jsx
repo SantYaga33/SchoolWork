@@ -46,27 +46,40 @@ class TodoTask extends React.Component {
 	render = () => {
 		return (
 			<div className={styles.tasks_item} id={this.props.id} data-priority={this.props.priority}>
+				<div className={styles.tooltip}>
+					<div className={styles.tooltip_wrap}>
+						<h4 className={styles.tooltip_title}>Task title : {this.props.task.title}</h4>
+						<div className={styles.tooltip_wrap__discr}>
+							<div className={styles.tooltip_info}>created : {this.props.createDate} </div>
+							<div className={styles.tooltip_info}>updated :{this.props.updateDate} </div>
+							<div className={styles.tooltip_info}>finished : {this.props.finishedDate} </div>
+						</div>
+					</div>
+				</div>
 				<div className={styles.tasks_title__wrap}>
 
 					{this.state.editMode
 						? <input className={styles.input_onblur} onBlur={this.deactivateEditMode}
-								 onChange={this.onTitleChange} type='text'  maxLength="15"
+								 onChange={this.onTitleChange} type='text' maxLength="15"
 								 value={this.props.task.title} autoFocus={true}/>
 						:
 						<div className={styles.task_title} onClick={this.activeEditorMode}
-							 maxLength="15"	>{this.props.task.title}</div>
+							 maxLength="15">{this.props.task.title}</div>
 					}
-					<div className={this.props.priority === 'high'? classNames (styles.liquid, styles.liquid_red)
-							: this.props.priority === 'medium'? classNames (styles.liquid, styles.liquid_green) :
+					<div className={this.props.priority === 'high' ? classNames (styles.liquid, styles.liquid_red)
+						: this.props.priority === 'medium' ? classNames (styles.liquid, styles.liquid_green) :
 							classNames (styles.liquid, styles.liquid_yellow)}></div>
 				</div>
 				<div className={styles.task_buttons}>
 					<button className={styles.task_button__red}
-							onClick={this.onChangePriorityHigh}>high</button>
+							onClick={this.onChangePriorityHigh}>high
+					</button>
 					<button className={styles.task_button__green}
-							onClick={this.onChangePriorityMedium}>medium</button>
+							onClick={this.onChangePriorityMedium}>medium
+					</button>
 					<button className={styles.task_button__yellow}
-							onClick={this.onChangePriorityLow}>low</button>
+							onClick={this.onChangePriorityLow}>low
+					</button>
 				</div>
 				<div className={styles.task_done}>
 					<input type="checkbox" checked={this.props.task.isDone}

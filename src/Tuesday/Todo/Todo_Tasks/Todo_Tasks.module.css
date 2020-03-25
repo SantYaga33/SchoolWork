@@ -17,6 +17,7 @@
 .tasks_wrap__input {
     height: 68px;
     width: 92%;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +45,7 @@
     padding-left: 20px;
     height: inherit;
     background-color: #393939;
-    color: #ccc;
+    color: white;
     box-sizing: border-box;
     border: 1px solid transparent;
 }
@@ -58,9 +59,6 @@
     height: inherit;
     background-color: #088dcd;
     cursor: pointer;
-    color: black;
-    font-size: 14px;
-    text-transform: lowercase;
 }
 
 /*===== анимация для кнопки добавдления task*/
@@ -89,6 +87,8 @@
 .tasks_button {
     display: inline-block;
     vertical-align: middle;
+    color: black;
+    text-transform: lowercase;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -145,12 +145,10 @@
     z-index: 1;
     color: #fff;
     width: 100%;
-    font-size: 16px;
-    /*letter-spacing: 8px;*/
+    font-size: 20px;
+    letter-spacing: 8px;
     font-weight: bold;
     overflow: hidden;
-    overflow-x: auto;
-    padding-left: 27px;
 }
 
 .tasks_title__wrap .liquid {
@@ -217,7 +215,6 @@
     align-items: center;
     justify-content: space-between;
     height: inherit;
-    color: black;
 
 }
 
@@ -227,8 +224,8 @@
     justify-content: center;
     align-items: center;
     height: 31%;
+    /*background-color:  #ffcc00;*/
     cursor: pointer;
-    color: black;
 
     border-left: 1px solid #363636;
 
@@ -275,7 +272,6 @@
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-
 }
 
 .task_buttons button:active {
@@ -313,7 +309,6 @@
     height: inherit;
     background-color: #088dcd;
     cursor: pointer;
-    color: black;
 }
 
 /*===== анимация кнопки delete */
@@ -326,7 +321,6 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
     background: #088dcd;
-    color: black;
     -webkit-transition-property: color;
     transition-property: color;
     -webkit-transition-duration: 0.3s;

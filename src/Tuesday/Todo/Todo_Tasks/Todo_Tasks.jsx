@@ -11,7 +11,8 @@ class TodoTasks extends React.Component {
 
 	state = {
 		error: false,
-		title: ''
+		title: '',
+
 	};
 
 	onAddTaskClick = () => {
@@ -57,13 +58,14 @@ class TodoTasks extends React.Component {
 
 	};
 	errorClass = styles.inputError;
-	render = () => {
 
+	render = () => {
 		let tasksElements = this.props.tasks.map (task => {
 			return (
 				<TodoTask changeStatus={this.props.changeStatus} key={task.id} id={task.id} priority={task.priority}
 						  task={task} changeTitle={this.props.changeTitle} deleteTask={this.props.deleteTask}
-						  changePriority={this.props.changePriority}/>
+						  changePriority={this.props.changePriority} createDate ={task.date.createDate}
+						  updateDate ={task.date.updateDate} finishedDate ={task.date.finishedDate}/>
 			)
 		});
 		return (

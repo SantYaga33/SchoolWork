@@ -18,7 +18,7 @@ class Root extends React.Component {
 					<TodoTasks addTask={this.props.addTask} tasks={this.props.tasks} deleteTask={this.props.deleteTask}
 							   changeTitle={this.props.changeTitle} changeStatus={this.props.changeStatus}
 							   state={this.props.state} changePriority={this.props.changePriority}
-							   title={this.props.title}/>
+							   title={this.props.title} />
 				</div>
 			</div>
 		);
