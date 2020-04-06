@@ -7,9 +7,6 @@ import WelcomePage from "./WelcomePage/WelcomePage";
 
 
 class Tuesday extends React.Component {
-	constructor (props) {
-		super (props);
-	}
 
 	state = {
 		todolists: [

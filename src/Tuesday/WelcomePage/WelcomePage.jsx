@@ -5,10 +5,6 @@ import styles from './WelcomePage.module.css';
 
 class WelcomePage extends React.Component {
 
-	constructor (props) {
-		super (props);
-	}
-
 	render = () => {
 		return (
 			<div className={styles.welcome_main}>
