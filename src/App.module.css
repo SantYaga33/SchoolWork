@@ -32,7 +32,6 @@ a:focus {
     height: 100vh;
     box-sizing: border-box;
     background-color: transparent;
-
     border-right: 1px solid #171754;
 }
 .main_pages {
