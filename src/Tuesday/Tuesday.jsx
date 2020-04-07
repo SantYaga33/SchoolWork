@@ -4,6 +4,8 @@ import TodoList from "./TodoList/TodoList";
 import Loader from "./Loader/Loader";
 import SideBar from "./SideBar/SideBar";
 import WelcomePage from "./WelcomePage/WelcomePage";
+import { connect } from "react-redux";
+import { loaderOf } from "../Redux/Reducer";
 
 
 class Tuesday extends React.Component {
@@ -15,19 +17,15 @@ class Tuesday extends React.Component {
 		errorTitle: false,
 		titleItem: '',
 		nextTaskId: 1,
-		loader: true,
 		isTodo: true
 
 	};
 
 	componentDidMount () {
-		this.restoreState ();
 		setTimeout (() => {
-			this.setState ({
-				loader: false
-			});
-
-		}, 3000)
+			this.props.loaderOf (false);
+		}, 3000);
+		this.restoreState ();
 	};
 
 	saveState = () => {
@@ -103,12 +101,14 @@ class Tuesday extends React.Component {
 			this.setState ({
 				errorTitle: true
 			}, () => {
-				this.saveState (this.state);});
+				this.saveState (this.state);
+			});
 		} else {
 			this.setState ({
 				errorTitle: false
 			}, () => {
-				this.saveState (this.state);});
+				this.saveState (this.state);
+			});
 			this.addItem (newTitleItem);
 		}
 	};
@@ -122,12 +122,14 @@ class Tuesday extends React.Component {
 				this.setState ({
 					errorTitle: true
 				}, () => {
-					this.saveState (this.state);});
+					this.saveState (this.state);
+				});
 			} else {
 				this.setState ({
 					errorTitle: false
 				}, () => {
-					this.saveState (this.state);});
+					this.saveState (this.state);
+				});
 				this.addItem (newTitleItem);
 			}
 		}
@@ -138,7 +140,8 @@ class Tuesday extends React.Component {
 			errorTitle: false,
 			titleItem: e.currentTarget.value
 		}, () => {
-			this.saveState (this.state);});
+			this.saveState (this.state);
+		});
 
 	};
 	choiceItem = (itemId) => {
@@ -151,11 +154,12 @@ class Tuesday extends React.Component {
 				}
 			})
 		}, () => {
-			this.saveState (this.state);});
+			this.saveState (this.state);
+		});
 	};
 
 	deleteItem = (itemId) => {
-		if (this.state.todolists.length-1 !== 0 ) {
+		if ( this.state.todolists.length - 1 !== 0 ) {
 			this.setState ({
 				isTodo: true,
 				todolists: this.state.todolists.filter (todo => todo.id !== itemId)
@@ -175,7 +179,8 @@ class Tuesday extends React.Component {
 				todolists: this.state.todolists.filter (todo => todo.id !== itemId),
 				isTodo: false
 			}, () => {
-				this.saveState (this.state);});
+				this.saveState (this.state);
+			});
 		}
 	};
 
@@ -186,7 +191,7 @@ class Tuesday extends React.Component {
 
 		return (
 			<div className='main_page'>
-				{this.state.loader ? <Loader/> :
+				{this.props.loader ? <Loader/> :
 					<div className='main_page__wrap'>
 						<SideBar errorTitle={this.state.errorTitle} todolists={this.state.todolists}
 								 choiceItem={this.choiceItem}
@@ -196,8 +201,8 @@ class Tuesday extends React.Component {
 						<div className='join'></div>
 
 						<div className='wrap_items'>
-							{ this.state.isTodo ?
-								<div>{ todoListElements }</div>
+							{this.state.isTodo ?
+								<div>{todoListElements}</div>
 								: <WelcomePage/>
 							}
 						</div>
@@ -208,6 +213,16 @@ class Tuesday extends React.Component {
 	}
 }
 
-export default Tuesday;
+const mapStatetoProps = (state) => {
+	return {
+		loader: state.loader
+	}
+};
+
+
+const connectTuesday = connect (mapStatetoProps, { loaderOf }) (Tuesday);
+
+export default connectTuesday;
+
 
 

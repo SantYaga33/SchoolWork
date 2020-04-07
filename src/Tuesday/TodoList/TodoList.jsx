@@ -9,9 +9,6 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 library.add (fab, faTrashAlt);
 
 class TodoList extends React.Component {
-	constructor (props) {
-		super (props);
-	}
 
 	state = {
 		tasks: [
@@ -63,30 +60,7 @@ class TodoList extends React.Component {
 	};
 
 	restoreState = () => {
-		// let state = {
-		// 	tasks: [
-		// 		{
-		// 			id: 0,
-		// 			title: 'Example',
-		// 			isDone: false,
-		// 			priority: 'high'
-		// 		},
-		// 		{
-		// 			id: 1,
-		// 			title: 'Example',
-		// 			isDone: false,
-		// 			priority: 'low'
-		// 		},
-		// 		{
-		// 			id: 2,
-		// 			title: 'Example',
-		// 			isDone: true,
-		// 			priority: 'medium'
-		// 		},
-		// 	],
-		// 	filterValue: 'All',
-		// 	nextTaskId: 3,
-		// };
+
 		let stateAsString = localStorage.getItem ('our-state-' + this.props.id);
 		if ( stateAsString !== null ) {
 			let stateLocalStorage = JSON.parse (stateAsString);
@@ -98,11 +72,6 @@ class TodoList extends React.Component {
 	addTask = (title) => {
 		let newCreateDate = new Date ();
 		let createDateStr = newCreateDate+'';
-
-		// let lastIndex = createDateStr.lastIndexOf(' ');
-		//
-		// createDateStr = createDateStr.substring(0, lastIndex);
-		console.log (createDateStr);
 		let newTask = {
 			id: this.state.nextTaskId,
 			title: title,
