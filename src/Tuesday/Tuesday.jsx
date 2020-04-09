@@ -190,6 +190,7 @@ class Tuesday extends React.Component {
 			<TodoList id={td.id} title={td.titleItem} display={td.display ? 'display_block' : 'display_none'}/>);
 
 		return (
+
 			<div className='main_page'>
 				{this.props.loader ? <Loader/> :
 					<div className='main_page__wrap'>
