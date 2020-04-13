@@ -1,0 +1,1 @@
+export const LOADER_OFF = 'LOADER_OFF';

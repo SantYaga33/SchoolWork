@@ -3,8 +3,9 @@ import styles from './App.module.css'
 import Main from "./Main/Main";
 import Menu from "./Menu/Menu";
 import First_page from "./First_Page/First_page";
-import { BrowserRouter, HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import Tuesday from "./Tuesday/Tuesday";
+import Wednesday from "./Wednesday/Wednesday";
 
 class App extends React.Component {
 	constructor (props) {
@@ -97,7 +98,7 @@ class App extends React.Component {
 												   addName={this.addName}
 												   onChange={this.onChange}/>}/>
 						<Route path='/Tuesday' exact={true} render={() => <Tuesday/>}/>
-						<Route path='/Wednesday' exact={true} render={() => <First_page/>}/>
+						<Route path='/Wednesday' exact={true} render={() => <Wednesday/>}/>
 						<Route path='/Thursday' exact={true} render={() => <First_page/>}/>
 						<Route path='/Friday' exact={true} render={() => <First_page/>}/>
 					</div>

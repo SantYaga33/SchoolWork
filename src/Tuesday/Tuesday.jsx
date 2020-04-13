@@ -5,7 +5,7 @@ import Loader from "./Loader/Loader";
 import SideBar from "./SideBar/SideBar";
 import WelcomePage from "./WelcomePage/WelcomePage";
 import { connect } from "react-redux";
-import { loaderOf } from "../Redux/Reducer";
+import { loaderOf } from "../Redux/TuesdayReducer/TuesdayReducer";
 
 
 class Tuesday extends React.Component {
