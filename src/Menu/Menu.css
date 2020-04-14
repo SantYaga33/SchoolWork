@@ -1,8 +1,4 @@
 
-
-
-
-
 /*== стили обвертки ==*/
 .menu {
     position: relative;
@@ -110,9 +106,3 @@
 li {
     list-style-type: none;
 }
-
-/*@media screen and (max-width: 50em) {*/
-/*    .menu--mohe .menu__item-label {*/
-/*        font-size: 0.85em;*/
-/*    }*/
-/*}*/
