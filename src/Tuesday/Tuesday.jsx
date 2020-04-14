@@ -5,7 +5,7 @@ import Loader from "./Loader/Loader";
 import SideBar from "./SideBar/SideBar";
 import WelcomePage from "./WelcomePage/WelcomePage";
 import { connect } from "react-redux";
-import { loaderOf } from "../Redux/TuesdayReducer/TuesdayReducer";
+import { loaderOf, tuesdayReducer } from "../Redux/TuesdayReducer/TuesdayReducer";
 
 
 class Tuesday extends React.Component {
@@ -216,7 +216,7 @@ class Tuesday extends React.Component {
 
 const mapStatetoProps = (state) => {
 	return {
-		loader: state.loader
+		loader: state.tuesdayReducer.loader
 	}
 };
 

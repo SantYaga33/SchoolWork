@@ -1,7 +1,14 @@
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { tuesdayReducer } from './TuesdayReducer/TuesdayReducer';
+import { wednesdayReducer } from "./WednesdayReducer/WednesdayReducer";
 
 
-const store = createStore (tuesdayReducer);
+const reducers = combineReducers({
+	tuesdayReducer: tuesdayReducer,
+	wednesdayReducer :wednesdayReducer
+
+});
+
+const store = createStore (reducers);
 
 export default store;

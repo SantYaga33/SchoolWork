@@ -1,21 +1,27 @@
 import React from 'react';
 import styles from './Wednesday.module.css'
+import { connect } from "react-redux";
+import { setTheme} from "../Redux/WednesdayReducer/WednesdayReducer";
 
-const Wednesday = () => {
+const Wednesday = (props) => {
+	const onChangeTheme = (e) =>{
+		let currentTheme;
+		if(e.currentTarget.checked) {
+			currentTheme = e.currentTarget.value;
+		}
+		props.setTheme(currentTheme);
+	};
 
 	return (
 		<div className={styles.wednesday__bg}>
-
-			<div className={`${styles.wednesday__border} ${styles.border__one}`}>
-				<div className={`${styles.wednesday__border} ${styles.border__two}`}>
-
-				</div>
+			<div className={`${styles[props.style]} ${styles.border__one}`}>
+				<div className={`${styles[props.style]} ${styles.border__two}`}></div>
 			</div>
 			<div className={styles.continput__wrap}>
 				<div className={styles.continput}>
 					<ul className={styles.continput__ul}>
 						<li className={styles.continput__li}>
-							<input checked type="radio" name="1" id='one'/>
+							<input defaultChecked type="radio" name="1" id='one' value='green' onChange={onChangeTheme}/>
 							<label htmlFor='one'>green theme</label>
 							<div className={styles.bullet}>
 								<div className={`${styles.line} ${styles.zero}`}></div>
@@ -29,8 +35,8 @@ const Wednesday = () => {
 							</div>
 						</li>
 						<li className={styles.continput__li}>
-							<input type="radio" name="1" id='two'/>
-							<label htmlFor='two'>dark theme </label>
+							<input type="radio" name="1" id='two' value='gray' onChange={onChangeTheme}/>
+							<label htmlFor='two'>gray theme </label>
 							<div className={styles.bullet}>
 								<div className={`${styles.line} ${styles.zero}`}></div>
 								<div className={`${styles.line} ${styles.one}`}></div>
@@ -43,8 +49,8 @@ const Wednesday = () => {
 							</div>
 						</li>
 						<li className={styles.continput__li}>
-							<input type="radio" name="1" id='three'/>
-							<label htmlFor='three'>light theme </label>
+							<input type="radio" name="1" id='three' value='red' onChange={onChangeTheme}/>
+							<label htmlFor='three'>red theme </label>
 							<div className={styles.bullet}>
 								<div className={`${styles.line} ${styles.zero}`}></div>
 								<div className={`${styles.line} ${styles.one}`}></div>
@@ -65,4 +71,13 @@ const Wednesday = () => {
 
 };
 
-export default Wednesday;
+const mapStateToProps = (state) => {
+	return {
+		style: state.wednesdayReducer.style
+	}
+};
+
+
+const ConnectedWednesday = connect (mapStateToProps, {setTheme}) (Wednesday);
+
+export default ConnectedWednesday;
