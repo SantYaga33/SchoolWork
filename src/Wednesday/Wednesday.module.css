@@ -32,6 +32,11 @@
     box-sizing: border-box;
 }
 
+.wednesday__animate {
+    width: 50%;
+    height: 60%;
+}
+
 .green {
     border-color: green;
 }

@@ -2,8 +2,10 @@ import React from 'react';
 import styles from './Wednesday.module.css'
 import { connect } from "react-redux";
 import { setTheme} from "../Redux/WednesdayReducer/WednesdayReducer";
+import ConnectedAnimateRequest from "./AnimateRuquest/AnomateRequest";
 
 const Wednesday = (props) => {
+
 	const onChangeTheme = (e) =>{
 		let currentTheme;
 		if(e.currentTarget.checked) {
@@ -15,7 +17,11 @@ const Wednesday = (props) => {
 	return (
 		<div className={styles.wednesday__bg}>
 			<div className={`${styles[props.style]} ${styles.border__one}`}>
-				<div className={`${styles[props.style]} ${styles.border__two}`}></div>
+				<div className={`${styles[props.style]} ${styles.border__two}`}>
+					<div className={styles.wednesday__animate}>
+						<ConnectedAnimateRequest />
+					</div>
+				</div>
 			</div>
 			<div className={styles.continput__wrap}>
 				<div className={styles.continput}>
@@ -65,7 +71,6 @@ const Wednesday = (props) => {
 					</ul>
 				</div>
 			</div>
-
 		</div>
 	)
 
