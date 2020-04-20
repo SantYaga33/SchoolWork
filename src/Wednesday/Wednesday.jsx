@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Wednesday.module.css'
 import { connect } from "react-redux";
 import { setTheme} from "../Redux/WednesdayReducer/WednesdayReducer";
-import ConnectedAnimateRequest from "./AnimateRuquest/AnomateRequest";
+import AnimateRequest from "./AnimateRuquest/AnimateRequest";
 
 const Wednesday = (props) => {
 
@@ -19,7 +19,7 @@ const Wednesday = (props) => {
 			<div className={`${styles[props.style]} ${styles.border__one}`}>
 				<div className={`${styles[props.style]} ${styles.border__two}`}>
 					<div className={styles.wednesday__animate}>
-						<ConnectedAnimateRequest />
+						<AnimateRequest />
 					</div>
 				</div>
 			</div>
