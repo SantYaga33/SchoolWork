@@ -6,8 +6,6 @@ import styles from './Animaterequest.module.css'
 class AnimateRequest extends React.Component {
 	constructor(props) {
 		super(props);
-		this.textRef = React.createRef();
-		this.buttonRef = React.createRef();
 
 		this.myClass =  class Gravity{
 			constructor (id) {
@@ -201,17 +199,9 @@ class AnimateRequest extends React.Component {
 			}
 		}
 
-
-
-
 	}
 
 	time = 0;
-
-    // button = document.getElementById('reset');
-
-
-	// button.addEventListener('click',function(){});
 
 	startAnimate () {
 		if(this.gravity.animate){
@@ -224,23 +214,16 @@ class AnimateRequest extends React.Component {
 
 	};
 
-
 	 animate (time) {
 		requestAnimationFrame(this.animate.bind(this) );
 
 		this.animation(time);
 	};
 
-
 	 animation(time){
 		this.paragraph.update();
 		this.gravity.update();
 	};
-
-
-
-
-
 
 	componentDidMount () {
 		this.paragraph = new this.myClass('text');
@@ -251,13 +234,13 @@ class AnimateRequest extends React.Component {
 	render = () => {
 		return (
 			<div className={styles.animate__wrap}>
-				<p className={styles.animate__text} id="text"  ref={this.textRef}>Lorem ipsum dolor sit amet,
+				<p className={styles.animate__text} id="text" >Lorem ipsum dolor sit amet,
 					consectetur adipisicing elit.
 					Doloremque porro illo voluptates,
 					delectus fugiat culpa aspernatur cupiditate ipsa cum totam sapiente non error veritatis dignissimos
 					in.
 					Corporis soluta, quo iure.</p>
-				<button className={styles.animate__button} id="reset" data-bound="true" onClick={this.startAnimate.bind(this)}  ref={this.buttonRef}>reset</button>
+				<button className={styles.animate__button} id="reset" data-bound="true" onClick={this.startAnimate.bind(this)} >reset</button>
 			</div>
 		)
 

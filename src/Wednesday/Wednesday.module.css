@@ -30,11 +30,12 @@
     padding: 15px;
     border: 26px solid green;
     box-sizing: border-box;
+
+    position: relative;
 }
 
 .wednesday__animate {
-    width: 50%;
-    height: 60%;
+
 }
 
 .green {
@@ -118,12 +119,12 @@
 
 .continput label:before {
     content: "";
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     background: #fff;
     position: absolute;
     left: 7px;
-    top: calc(50% - 6px);
+    top: calc(50% - 5px);
     box-sizing: border-box;
     border-radius: 50%;
 }
@@ -146,10 +147,10 @@
 
 .bullet {
     position: relative;
-    width: 25px;
-    height: 25px;
-    left: -3px;
-    top: 9px;
+    width: 30px;
+    height: 30px;
+    left: -1px;
+    top: 2px;
     border: 5px solid #fff;
     opacity: 0;
     border-radius: 50%;
