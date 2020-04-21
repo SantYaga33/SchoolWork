@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SchoolWork/static/css/main.313418cc.chunk.css",
-    "main.js": "/SchoolWork/static/js/main.bf157f2a.chunk.js",
-    "main.js.map": "/SchoolWork/static/js/main.bf157f2a.chunk.js.map",
+    "main.js": "/SchoolWork/static/js/main.e0e3cd27.chunk.js",
+    "main.js.map": "/SchoolWork/static/js/main.e0e3cd27.chunk.js.map",
     "runtime-main.js": "/SchoolWork/static/js/runtime-main.7eb779de.js",
     "runtime-main.js.map": "/SchoolWork/static/js/runtime-main.7eb779de.js.map",
     "static/js/2.53cace2c.chunk.js": "/SchoolWork/static/js/2.53cace2c.chunk.js",
     "static/js/2.53cace2c.chunk.js.map": "/SchoolWork/static/js/2.53cace2c.chunk.js.map",
     "index.html": "/SchoolWork/index.html",
-    "precache-manifest.2f18be37383dc715d258622c4d067896.js": "/SchoolWork/precache-manifest.2f18be37383dc715d258622c4d067896.js",
+    "precache-manifest.ecf3a278bc4b02be6f3a7ee13d9f2f15.js": "/SchoolWork/precache-manifest.ecf3a278bc4b02be6f3a7ee13d9f2f15.js",
     "service-worker.js": "/SchoolWork/service-worker.js",
     "static/css/main.313418cc.chunk.css.map": "/SchoolWork/static/css/main.313418cc.chunk.css.map",
     "static/js/2.53cace2c.chunk.js.LICENSE.txt": "/SchoolWork/static/js/2.53cace2c.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.7eb779de.js",
     "static/js/2.53cace2c.chunk.js",
     "static/css/main.313418cc.chunk.css",
-    "static/js/main.bf157f2a.chunk.js"
+    "static/js/main.e0e3cd27.chunk.js"
   ]
 }
