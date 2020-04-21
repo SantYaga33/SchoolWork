@@ -3,18 +3,17 @@ import styles from './Animaterequest.module.css';
 import axios from 'axios';
 
 
-
 class AnimateRequest extends React.Component {
-	constructor(props) {
-		super(props);
-		this.myClass =  class Gravity{
-			constructor (id) {
+	constructor (props) {
+		super (props);
+		this.myClass = class Gravity {
+			constructor (id, newText) {
 				this.id = id;
-
+				this.text = newText;
 
 				let that = this;
 				let element = document.getElementById (id);
-				let text = element.textContent;
+				let text = newText || element.textContent;
 				let arr = text.split ('');
 
 				this.animate = true;
@@ -198,79 +197,96 @@ class AnimateRequest extends React.Component {
 				}
 			}
 		}
-
 	}
+
 	state = {
-		status : false
+		status: false,
+		responseMessage: 'Ожидаем сообщения с сервера!'
 	}
 
 	time = 0;
 
 	startAnimate () {
-		if(this.gravity.animate){
-			this.gravity.reset();
-			this.paragraph.reset();
-		}else{
-			this.gravity.restart();
-			this.paragraph.restart();
+		if ( this.gravity.animate ) {
+			this.gravity.reset ();
+			this.paragraph.reset ();
+		} else {
+			this.gravity.restart ();
+			this.paragraph.restart ();
 		}
-
 	};
 
-	 animate (time) {
-		requestAnimationFrame(this.animate.bind(this) );
+	animate (time) {
+		requestAnimationFrame (this.animate.bind (this));
 
-		this.animation(time);
+		this.animation (time);
 	};
 
-	 animation(time){
-		this.paragraph.update();
-		this.gravity.update();
+	animation (time) {
+		this.paragraph.update ();
+		this.gravity.update ();
 	};
 
 	componentDidMount () {
-		this.paragraph = new this.myClass('text');
-		this.gravity = new this.myClass('reset');
-		this.animate(0);
+		this.paragraph = new this.myClass ('text');
+		this.gravity = new this.myClass ('reset');
+		this.animate (0);
+	}
+
+	componentDidUpdate (prevProps, prevState, snapshot) {
+		if ( prevState.responseMessage !== this.state.responseMessage ) {
+			this.paragraph = new this.myClass ('text', this.state.responseMessage);
+		}
+
 	}
 
 	toggleRequest = (e) => {
 		let status = e.currentTarget.checked;
-		this.setState({
+		this.setState ({
 			status: status
 		})
 	}
 
 	requestToServer = (status) => {
-		return  axios.post(`https://neko-cafe-back.herokuapp.com/auth/test`,{success: status})}
+		return axios.post (`https://neko-cafe-back.herokuapp.com/auth/test`, { success: status })
+	}
 
 	sendRequest = async () => {
 		try {
-			const response = await this.requestToServer(this.state.status);
-			console.log('answer:', response.data);
+			const response = await this.requestToServer (this.state.status);
+			console.log ('answer:', response.data);
+			this.setState ({
+				responseMessage: response.data.info
+			})
 			return response;
 		} catch (e) {
-			console.log('error:', {...e});
+			console.log ('error:', { ...e });
+			this.setState ({
+				responseMessage: e.response.data.info
+			})
 			return 'error';
 		}
+
 	}
-
-
 
 	render = () => {
 		return (
 			<div className={styles.animate__wrap}>
-				<p className={styles.animate__text} id="text" >Lorem ipsum dolor sit amet,
-					consectetur adipisicing elit.
-					Doloremque porro illo voluptates,
-					delectus fugiat culpa aspernatur cupiditate ipsa cum totam sapiente non error veritatis dignissimos
-					in.
-					Corporis soluta, quo iure.</p>
-				<button className={styles.animate__button} id="reset" data-bound="true"
-						onClick={this.startAnimate.bind(this)} >reset</button>
+				<p className={styles.animate__text} id="text">Сервером называется компьютер, выделенный из группы
+					персональных компьютеров (или рабочих станций) для выполнения какой-либо сервисной задачи без
+					непосредственного участия человека. Сервер и рабочая станция могут иметь одинаковую аппаратную
+					конфигурацию, так как различаются лишь по участию в своей работе человека за консолью.
+					{this.state.responseMessage}</p>
+
 				<div className={styles.requestserver__wrap}>
-					<input type='checkbox' onChange={this.toggleRequest}/>
-					<div className={styles.requestserver__batton} onClick={this.sendRequest}>Send</div>
+					<input className={styles.requestserver__checkbox} type='checkbox' id='checkboxId'
+						   onChange={this.toggleRequest}/>
+					<label htmlFor='checkboxId'></label>
+					<button className={styles.requestserver__button} onClick={this.sendRequest}>Send</button>
+					<button className={styles.animate__button} id="reset" data-bound="true"
+							onClick={this.startAnimate.bind (this)}>reset
+					</button>
+
 				</div>
 			</div>
 		)
@@ -279,6 +295,5 @@ class AnimateRequest extends React.Component {
 
 
 }
-
 
 export default AnimateRequest;

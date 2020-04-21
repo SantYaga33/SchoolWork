@@ -35,6 +35,9 @@
     margin-bottom: 4px;
     background-color: #424242;
 
+    height: 594px;
+    max-height: 594px;
+
 }
 
 .wrap_items {
