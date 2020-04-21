@@ -269,9 +269,6 @@ class AnimateRequest extends React.Component {
 		}
 	}
 
-
-
-
 	render = () => {
 		return (
 			<div className={styles.animate__wrap}>
@@ -295,7 +292,6 @@ class AnimateRequest extends React.Component {
 		)
 
 	}
-
 
 }
 
