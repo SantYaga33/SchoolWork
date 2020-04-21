@@ -236,6 +236,7 @@ class AnimateRequest extends React.Component {
 	componentDidUpdate (prevProps, prevState, snapshot) {
 		if ( prevState.responseMessage !== this.state.responseMessage ) {
 			this.paragraph = new this.myClass ('text', this.state.responseMessage);
+			this.gravity = new this.myClass ('reset');
 		}
 
 	}
@@ -266,8 +267,10 @@ class AnimateRequest extends React.Component {
 			})
 			return 'error';
 		}
-
 	}
+
+
+
 
 	render = () => {
 		return (
