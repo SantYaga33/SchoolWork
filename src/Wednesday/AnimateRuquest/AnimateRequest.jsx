@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './Animaterequest.module.css'
+import styles from './Animaterequest.module.css';
+import axios from 'axios';
 
 
 
 class AnimateRequest extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.myClass =  class Gravity{
 			constructor (id) {
 				this.id = id;
@@ -200,6 +200,9 @@ class AnimateRequest extends React.Component {
 		}
 
 	}
+	state = {
+		status : false
+	}
 
 	time = 0;
 
@@ -231,6 +234,29 @@ class AnimateRequest extends React.Component {
 		this.animate(0);
 	}
 
+	toggleRequest = (e) => {
+		let status = e.currentTarget.checked;
+		this.setState({
+			status: status
+		})
+	}
+
+	requestToServer = (status) => {
+		return  axios.post(`https://neko-cafe-back.herokuapp.com/auth/test`,{success: status})}
+
+	sendRequest = async () => {
+		try {
+			const response = await this.requestToServer(this.state.status);
+			console.log('answer:', response.data);
+			return response;
+		} catch (e) {
+			console.log('error:', {...e});
+			return 'error';
+		}
+	}
+
+
+
 	render = () => {
 		return (
 			<div className={styles.animate__wrap}>
@@ -240,7 +266,12 @@ class AnimateRequest extends React.Component {
 					delectus fugiat culpa aspernatur cupiditate ipsa cum totam sapiente non error veritatis dignissimos
 					in.
 					Corporis soluta, quo iure.</p>
-				<button className={styles.animate__button} id="reset" data-bound="true" onClick={this.startAnimate.bind(this)} >reset</button>
+				<button className={styles.animate__button} id="reset" data-bound="true"
+						onClick={this.startAnimate.bind(this)} >reset</button>
+				<div className={styles.requestserver__wrap}>
+					<input type='checkbox' onChange={this.toggleRequest}/>
+					<div className={styles.requestserver__batton} onClick={this.sendRequest}>Send</div>
+				</div>
 			</div>
 		)
 
