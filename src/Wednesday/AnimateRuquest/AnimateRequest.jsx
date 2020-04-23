@@ -238,7 +238,6 @@ class AnimateRequest extends React.Component {
 			this.paragraph = new this.myClass ('text', this.state.responseMessage);
 			this.gravity = new this.myClass ('reset');
 		}
-
 	}
 
 	toggleRequest = (e) => {
@@ -292,7 +291,6 @@ class AnimateRequest extends React.Component {
 		)
 
 	}
-
 }
 
 export default AnimateRequest;
