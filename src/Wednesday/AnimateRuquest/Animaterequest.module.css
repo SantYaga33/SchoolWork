@@ -51,14 +51,17 @@
     height: 50px;
     background: orange;
     color: red;
-    border: 0;
     cursor: pointer;
     border-radius: 3px;
     font-family: monospace;
     font-size: 2em;
     text-transform: lowercase;
+    border: 1px solid transparent ;
 }
 
+.requestserver__inProgress {
+    border: 1px solid red;
+}
 /*===== стили для чекбокса =====*/
 input[type="checkbox"] + label {
     margin-right: 40px;
@@ -96,6 +99,9 @@ input[type="checkbox"]:not(:checked) + label:before {
     background-color: orange;
 }
 
+input[type="checkbox"]:checked + label:before {
+    border: 1px solid red;
+}
 
 input[type="checkbox"]:checked + label:before,
 input[type="checkbox"]:not(:checked) + label:before {
