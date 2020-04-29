@@ -55,12 +55,13 @@ class AnimateRequest extends React.Component {
 		})
 	}
 
-	sendRequest = async () => {
-		this.setState ({ inProgress: true });  //возможно ли , что ансинх setState() выполниться  позже??
-		let response = await tryCatch (this.state.status);
-		this.setState ({
-			responseMessage: response,
-			inProgress: false
+	sendRequest =  () => {
+		this.setState ({ inProgress: true }, async () => {
+			let response =  await tryCatch (this.state.status);
+			this.setState ({
+				responseMessage: response,
+				inProgress: false
+			})
 		})
 	}
 
