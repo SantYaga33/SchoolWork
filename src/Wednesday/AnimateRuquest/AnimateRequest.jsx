@@ -49,6 +49,7 @@ class AnimateRequest extends React.Component {
 	}
 
 	toggleRequest = (e) => {
+		debugger
 		let status = e.currentTarget.checked;
 		this.setState ({
 			status: status
@@ -95,3 +96,7 @@ class AnimateRequest extends React.Component {
 }
 
 export default AnimateRequest;
+
+
+
+
